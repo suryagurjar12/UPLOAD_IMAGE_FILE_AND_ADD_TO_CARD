@@ -11,6 +11,10 @@ def home(request):
         if form.is_valid():
             form.save()
     
-    data =ItemInfo.objects.all()
-    return render(request,'home.html',{'form':form,'data':data})
+    return render(request,'home.html',{'form':form})
 
+
+def showdata(request):
+    data=ItemInfo.objects.all()
+    data1 = data.values()
+    return render(request,'dashboard.html',{'data':data1})
